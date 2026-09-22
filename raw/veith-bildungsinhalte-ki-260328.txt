@@ -1,0 +1,51 @@
+# Rohquelle: Ivo Veith – Nicht nur wie, sondern was
+## Quellenangabe
+- Verfasser: Ivo Veith, Zukunftsarchitekt
+- Datum: 28. März 2026
+- Titel: Nicht nur wie, sondern was - Warum KI die Frage nach den Inhalten von Bildung neu aufwirft
+- Format: Diskussionspapier für swissfuture-Community
+- Datei: swissfuture_Nicht nur wie sondern was_Ivo Veith_260328.pdf
+
+## Zentrale These
+Bildungssysteme arbeiten primär an der Frage "Wie vermitteln wir Bildung?" (Methode, Didaktik), während die fundamentalere Frage "Was sollte gelehrt werden?" (Inhalte) kaum systematisch überprüft wird. KI sollte nicht nur als Unterrichtsgegenstand oder -werkzeug dienen, sondern als analytisches Instrument zur Lehrplanentwicklung.
+
+## Kernargumente
+
+### Was wir über Bildungsinhalte wissen
+1. **Kritikfähigkeit:** Nicht kontextfrei trainierbar, sondern stark an Domänenwissen gebunden (Willingham)
+2. **Entscheidungskompetenz:** Spezifische kognitive Werkzeuge sind trainierbar, aber Transfer bleibt porös
+3. **Charakterbildung:** Weniger Wissensvermittlung als Gewöhnung, Praxis und soziale Einbettung
+
+### Das Problem: Lehrpläne als Sedimentschichten
+- Lehrpläne sind nicht das Resultat systematischer Analyse, sondern Kompromisse zwischen Beharrungskräften
+- Viele Inhalte existieren nur, weil sie "schon immer da waren"
+- Die europäische Revision alle 10 Jahre ist zu langsam für exponentielle Veränderungen
+- Keine systematische Überprüfung, ob Lehrplaninhalte zu deklarierten Zielen führen
+
+### KI als analytisches Werkzeug
+KI könnte ein "epistemisches Audit" des Bildungssystems durchführen auf drei Ebenen:
+
+1. **Kohärenzanalyse:** Welche Inhalte stehen in belegbarem Zusammenhang mit deklarierten Zielen?
+2. **Wirkungsanalyse:** Längsschnittdaten korrelieren - zeigen sich Muster zwischen Inhalten und Outcomes?
+3. **Komparative Analyse:** OECD-Länder vergleichen - welche Inhaltskonfigurationen funktionieren besser?
+
+### Grenzen von KI und Goodhart's Law
+- KI kann nur optimieren, was sich messen lässt
+- Das Wesentliche an Bildung entzieht sich der Messung
+- Risiko: Elimination scheinbar "nutzloser" Bestandteile, die für Mündigkeit entscheidend sind
+- Aber: KI kann notwendige Bedingungen, systematische Hindernisse und comparative insights liefern
+
+### Der blinde Fleck: Exponentielle Dynamik
+Annahme linearer Entwicklung ist ein kritischer Fehler:
+- KI-Systeme 2030 sind möglicherweise qualitativ anders als heute (wie 2005 vs. Smartphone)
+- Konsequenzen: Die Rolle menschlichen Wissens, die Grenze Messbares/Wesentliches, die Definition von Bildung selbst verschieben sich
+
+## Konsequenzen: Was sich ändern muss
+
+1. **Lehrpläne adaptiv machen:** Von statischen Dokumenten zu lebenden Systemen mit kontinuierlichen Datenabgleichen
+2. **Von Inhaltsfixierung zu Fähigkeitsfixierung:** Inhalte sind Vehikel, nicht Ziel
+3. **KI in Lehrplanentwicklung einbeziehen:** Analytischer statt kulturpolitischer Verhandlungsprozess
+4. **Das Paradox des "Nützlichen" bewahren:** Gerade weil KI Wissen abrufbar macht, wird Eigenverständnis wichtiger
+
+## Schlussgedanke
+Bildung braucht weder Reduktion (als "Resteverwertung" dessen, was Maschinen nicht können) noch starres Festhalten am Bestehenden. Sie braucht eine Neubestimmung: Bildung nicht primär als Kompetenzverwertung, sondern als Wert an sich - unterstützt von besseren Informationen und analytischen Werkzeugen.

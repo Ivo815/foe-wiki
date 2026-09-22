@@ -1,0 +1,41 @@
+# Rohquelle: Ivo Veith – Predetermined Elements als methodischer Anker
+## Quellenangabe
+- Verfasser: Ivo Veith, Zukunftsarchitekt
+- Datum: Mai 2026
+- Format: Diskussionspapier für swissfuture-Community
+- Datei: Predetermined-Elements_swissfuture_Ivo Veith_260526.pdf
+
+## Inhalt
+Skizze zu Predetermined Elements als methodisches Fundament für Szenarioplanung mit Schweizer Bezug. Das Papier schlägt vor, dass swissfuture eine bewusst eingegrenzte, faktenbasierte Liste von Elementen erarbeitet, die in jedem plausiblen Szenario bis 2050/2055 eintreten werden, weil ihre Ursachen bereits strukturell, demografisch oder physisch festgelegt sind.
+
+## Zentrale Abgrenzungen
+- Predetermined Elements ≠ Prognosen (keine Detailvorhersagen, sondern robuste Grössen)
+- Predetermined Elements ≠ Trends (nicht fortsetzbar, sondern strukturell festgelegt)
+- Predetermined Elements sind kontextspezifisch (Schweizer Liste ≠ globale Liste)
+
+## Kategorien der Vorbestimmtheit
+1. Demografische Vorbestimmtheit
+2. Klimadynamik
+3. Physisch-geographische Konstanten
+4. Infrastrukturelle Pfadabhängigkeiten
+5. Institutionelle Pfadabhängigkeiten
+6. Vorbestimmte Kohorten
+
+## Bewusst nicht enthalten
+- Technologische Entwicklungen (inkl. KI)
+- Wirtschaftswachstum und Strukturwandel
+- Geopolitische Konstellationen
+- Energiemix jenseits bestehender Anlagen
+- Wertewandel und politische Mehrheiten
+
+## Methodische Caveats
+- Predetermined ≠ sicher (hohe Wahrscheinlichkeit, aber nicht 100%)
+- Liste ist nicht abgeschlossen (Vorschlag zur Diskussion)
+- Grenzziehung teilweise Auslegungssache (v.a. institutionelle Ebene)
+- Quellenbasis muss transparent gepflegt und periodisch aktualisiert werden
+
+## Mögliche Anschlüsse für swissfuture
+1. Methodische Ergänzung der «Wegweisung für belastbare Zukünfte»
+2. Fundament für swissfuture-Szenarioarbeit «Schweiz 2050»
+3. Jährliches «Faktenbarometer» als öffentliche Kommunikation
+4. Prüfraster für Zukunftsbilder Dritter
