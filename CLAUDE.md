@@ -81,6 +81,8 @@ Ablauf beim Einlesen einer neuen Quelle aus `raw/`:
 3. Betroffene Seiten in `wiki/theses/` und `wiki/concepts/` aktualisieren oder neu anlegen, inklusive Verweis auf die neue Quellenseite.
 4. `index.md` aktualisieren.
 5. Eintrag in `log.md` ergänzen (Format siehe unten).
+6. `dashboard.html` aktualisieren: Statistik-Counter erhöhen, neue Quelle/Konzept-Cards hinzufügen, wikiContent-Objekt mit HTML-Inhalten erweitern.
+7. Alle Änderungen ins Git-Repo pushen (commit + push).
 
 Quellen einzeln verarbeiten, nicht mehrere unbeaufsichtigt im Batch.
 
