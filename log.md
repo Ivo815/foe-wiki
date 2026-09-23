@@ -35,3 +35,9 @@ Chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge. Format: `[DA
 [2026-09-23] [INGEST] wiki/concepts/positive-zukunftsbilder.md — Concept-Seite angelegt (Definition, These, 7 Elemente wirksamer PZB, Caveats, Messfragen, Verhältnis zu anderen FoE-Konzepten)
 
 [2026-09-23] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, 1 neue Source-Seite added, Datum auf 2026-09-23 gesetzt
+
+[2026-09-23] [INGEST] swissfuture-Wegweisung-Robuste-Zukünfte.pdf → wiki/sources/swissfuture-wegweisung-2026.md (Quelle mit vollständiger Operationalisierung der 7 Dimensionen: je 3–4 konkrete Prüffragen pro Dimension)
+
+[2026-09-23] [UPDATE] wiki/concepts/swiss-foresight-method.md — Dimensionen mit konkreten Prüffragen erweitert (aus swissfuture-Wegweisung), neue Quellenreferenz auf swissfuture-wegweisung-2026
+
+[2026-09-23] [INDEX] index.md aktualisiert — 1 neue Source-Seite swissfuture-wegweisung-2026 an oberster Stelle eingefügt

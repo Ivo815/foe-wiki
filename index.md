@@ -34,6 +34,8 @@ Noch keine Thesen angelegt.
 
 *(Zusammenfassungsseiten zu Rohquellen aus `raw/`)*
 
+- [swissfuture – Wegweisung für belastbare Zukünfte](wiki/sources/swissfuture-wegweisung-2026.md) — Prüfraster mit sieben Qualitätsdimensionen und Operationalisierungsfragen für Zukunftsbilder | *intern*
+
 - [Ivo Veith – Predetermined Elements als methodischer Anker (Mai 2026)](wiki/sources/veith-predetermined-elements-260526.md) — Diskussionspapier zur Konkretisierung der swissfuture-Methode für Szenarien «Schweiz 2050/2055» | *intern*
 
 - [Ivo Veith – Nicht nur wie, sondern was (März 2026)](wiki/sources/veith-bildungsinhalte-ki-260328.md) — Warum KI die Frage nach Bildungsinhalten neu aufwirft; Lehrpläne als epistemisches Problem | *intern*
@@ -55,6 +57,6 @@ Noch keine Personenseiten angelegt.
 - **intern** – Seite ist noch nicht für Veröffentlichung freigegeben
 - **extern** – Seite ist für Veröffentlichung freigegeben (unterliegt Anonymitätsklausel, Visibility-Regel)
 
-**Datum des Katalogs:** 2026-09-23
+**Datum des Katalogs:** 2026-09-23 (aktualisiert nach Ingest swissfuture-Wegweisung)
 
 Siehe auch: [`log.md`](log.md) für chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge.
