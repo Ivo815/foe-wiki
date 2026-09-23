@@ -20,7 +20,12 @@
         .logo svg { width: 100px; height: auto; }
         header h1 { font-size: 32px; color: #1a202c; margin-bottom: 10px; }
         header p { color: #718096; font-size: 16px; line-height: 1.6; }
-        
+
+        .error-banner {
+            display: none; background: #fee2e2; color: #7f1d1d; border-radius: 12px;
+            padding: 20px; margin-bottom: 30px; font-size: 14px;
+        }
+
         .stats {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px; margin-bottom: 30px;
@@ -35,7 +40,7 @@
         .stat-card .label {
             color: #718096; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
         }
-        
+
         .controls {
             background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; gap: 20px;
@@ -47,7 +52,7 @@
             border-radius: 6px; font-size: 14px;
         }
         .search-box input:focus { outline: none; border-color: #3b82f6; }
-        
+
         .filter-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
         button {
             padding: 8px 16px; border: 2px solid #e2e8f0; background: white;
@@ -55,7 +60,7 @@
         }
         button:hover { border-color: #3b82f6; color: #3b82f6; }
         button.active { background: #3b82f6; color: white; border-color: #3b82f6; }
-        
+
         .page-item {
             padding: 15px; background: #f7fafc; border-radius: 8px; border-left: 4px solid #3b82f6;
             cursor: pointer; transition: all 0.2s;
@@ -72,9 +77,10 @@
         .badge-source { background: #dbeafe; color: #0c4a6e; }
         .badge-concept { background: #dcfce7; color: #166534; }
         .badge-thesis { background: #fce7f3; color: #831843; }
+        .badge-person { background: #fef3c7; color: #78350f; }
         .badge-intern { background: #fee2e2; color: #7f1d1d; }
         .badge-extern { background: #d1fae5; color: #065f46; }
-        
+
         .section {
             background: white; border-radius: 12px; padding: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 30px;
@@ -87,7 +93,7 @@
         .empty {
             color: #a0aec0; font-style: italic; padding: 20px; text-align: center;
         }
-        
+
         .modal {
             display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.5); overflow-y: auto; padding: 20px;
@@ -105,7 +111,7 @@
             background: white; z-index: 10;
         }
         .modal-header h2 { margin: 0; font-size: 24px; color: #1a202c; flex: 1; }
-        .modal-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        .modal-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; align-items: center; }
         .modal-close {
             background: none; border: none; font-size: 28px; color: #718096; cursor: pointer;
             padding: 0; width: 40px; height: 40px; display: flex; align-items: center;
@@ -113,9 +119,15 @@
         }
         .modal-close:hover { background: #f7fafc; color: #1a202c; }
         .modal-body { padding: 30px; line-height: 1.8; color: #2d3748; }
-        .modal-body h3 { font-size: 18px; color: #2d3748; margin: 20px 0 10px 0; }
+        .modal-body h1, .modal-body h2, .modal-body h3 { margin: 20px 0 10px 0; color: #2d3748; }
         .modal-body ul, .modal-body ol { margin: 15px 0; padding-left: 25px; }
         .modal-body li { margin: 8px 0; }
+        .modal-body a.wikilink {
+            color: #3b82f6; text-decoration: underline; cursor: pointer;
+        }
+        .modal-body span.wikilink-broken {
+            color: #b91c1c; border-bottom: 1px dashed #b91c1c; cursor: help;
+        }
         footer { text-align: center; color: #718096; margin-top: 40px; font-size: 14px; }
     </style>
 </head>
@@ -137,89 +149,25 @@
             </div>
         </header>
 
+        <div class="error-banner" id="app-error"></div>
+
         <div class="stats">
-            <div class="stat-card">
-                <div class="number" id="total-pages">10</div>
-                <div class="label">Seiten</div>
-            </div>
-            <div class="stat-card">
-                <div class="number" id="total-sources">4</div>
-                <div class="label">Quellen</div>
-            </div>
-            <div class="stat-card">
-                <div class="number" id="total-concepts">6</div>
-                <div class="label">Konzepte</div>
-            </div>
-            <div class="stat-card">
-                <div class="number" id="total-theses">0</div>
-                <div class="label">Thesen</div>
-            </div>
+            <div class="stat-card"><div class="number" id="total-pages">–</div><div class="label">Seiten</div></div>
+            <div class="stat-card"><div class="number" id="total-sources">–</div><div class="label">Quellen</div></div>
+            <div class="stat-card"><div class="number" id="total-concepts">–</div><div class="label">Konzepte</div></div>
+            <div class="stat-card"><div class="number" id="total-theses">–</div><div class="label">Thesen</div></div>
         </div>
 
         <div class="controls">
             <div class="search-box">
-                <input type="text" id="search" placeholder="Seite suchen (z.B. 'Predetermined', 'Bildung', 'KI')...">
+                <input type="text" id="search" placeholder="Seite suchen...">
             </div>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Alle</button>
-                <button class="filter-btn" data-filter="sources">Quellen</button>
-                <button class="filter-btn" data-filter="concepts">Konzepte</button>
-            </div>
+            <div class="filter-buttons" id="filter-buttons"></div>
         </div>
 
-        <div class="section" data-section="sources">
-            <h2>Quellen</h2>
-            <div class="pages">
-                <div class="page-item" onclick="openModal('swissfuture-wegweisung')" data-type="sources" data-search="swissfuture wegweisung belastbare zukünfte dimensionen prüffragen">
-                    <div class="page-title">swissfuture – Wegweisung für belastbare Zukünfte</div>
-                    <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('veith-pe')" data-type="sources" data-search="veith predetermined elements scenario planning">
-                    <div class="page-title">Ivo Veith – Predetermined Elements (Mai 2026)</div>
-                    <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('veith-bildung')" data-type="sources" data-search="veith bildung ki lehrplan curriculum">
-                    <div class="page-title">Ivo Veith – Nicht nur wie, sondern was (März 2026)</div>
-                    <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('swissfuture-2024')" data-type="sources" data-search="swissfuture positive zukunftsbilder narrative regeneration">
-                    <div class="page-title">swissfuture Magazin 03–04/24: Positive Zukunftsbilder</div>
-                    <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-            </div>
-        </div>
+        <div id="sections"></div>
 
-        <div class="section" data-section="concepts">
-            <h2>Konzepte</h2>
-            <div class="pages">
-                <div class="page-item" onclick="openModal('predetermined-elements')" data-type="concepts" data-search="predetermined elements">
-                    <div class="page-title">Predetermined Elements</div>
-                    <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('scenario-planning')" data-type="concepts" data-search="scenario szenario planung">
-                    <div class="page-title">Szenarioplanung</div>
-                    <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('swiss-method')" data-type="concepts" data-search="swissfuture methode foresight">
-                    <div class="page-title">Swissfuture-Methode für belastbare Zukünfte</div>
-                    <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('curriculum-design')" data-type="concepts" data-search="curriculum lehrplan design education">
-                    <div class="page-title">Lehrplanentwicklung (Curriculum Design)</div>
-                    <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('ai-education')" data-type="concepts" data-search="ki artificial intelligence education bildung">
-                    <div class="page-title">KI in der Bildung</div>
-                    <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-                <div class="page-item" onclick="openModal('positive-zukunftsbilder')" data-type="concepts" data-search="positive zukunftsbilder narrative regeneration transformation">
-                    <div class="page-title">Positive Zukunftsbilder</div>
-                    <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
-                </div>
-            </div>
-        </div>
-
-        <footer><p>FoE-Wiki • 2026-09-23 • 10 Seiten Insgesamt</p></footer>
+        <footer><p id="footer-text">FoE-Wiki wird geladen …</p></footer>
     </div>
 
     <div id="modal" class="modal">
@@ -232,145 +180,269 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        const wikiContent = {
-            'swissfuture-wegweisung': {
-                title: 'swissfuture – Wegweisung für belastbare Zukünfte',
-                type: 'sources',
-                visibility: 'intern',
-                html: `<h3>swissfuture – Wegweisung für belastbare Zukünfte</h3><p><strong>Quelle:</strong> Schweizerische Vereinigung für Zukunftsforschung (swissfuture) | 2026</p><h3>Zweck</h3><p>Die Wegweisung ist ein Prüfraster zur Bewertung von Zukunftsbildern – eigenen und fremden – mit sieben Qualitätsdimensionen und je 3–4 operativen Kontrollfrages pro Dimension.</p><h3>Die sieben Dimensionen</h3><ol><li><strong>Plausibilität</strong> – Ist das Zukunftsbild in sich kohärent und frei von logischen Widersprüchen?</li><li><strong>Methodische Transparenz</strong> – Sind Quellen, Methoden, Annahmen und Imaginationen deutlich voneinander unterschieden?</li><li><strong>Partizipation</strong> – Sind alle relevanten Akteur:innen (menschlich und nichtmenschlich) miteinbezogen?</li><li><strong>Pluralität</strong> – Ist das Zukunftsbild als eine von vielen möglichen Zukünften dargestellt?</li><li><strong>Empowerment / Ermächtigung</strong> – Befähigt das Bild zum eigenständigen Denken und Handeln?</li><li><strong>Ganzheitlichkeit / Holismus</strong> – Werden alle Aspekte (Disziplinen, Perspektiven) des Themas abgebildet?</li><li><strong>Neuartigkeit / Neuheit</strong> – Bietet das Bild echte neue Perspektiven, nicht bloss Extrapolation des Bestehenden?</li></ol><h3>Operationalisierung pro Dimension</h3><p><strong>Plausibilität:</strong> Ist kohärent? Ist konsistent? Ist grundsätzlich möglich/denkbar?</p><p><strong>Methodische Transparenz:</strong> Auf welchen Grundlagen aufgebaut? Vermutungen deklariert? Methoden-Wahl offengelegt? Prozess einsehbar?</p><p><strong>Partizipation:</strong> Akteur:innen identifiziert? Methodenadäquate Beteiligung? Alle in Prozessschritten involved?</p><p><strong>Pluralität:</strong> Als eine von vielen dargestellt? Gestaltbar und ergebnisoffen?</p><p><strong>Empowerment:</strong> Befähigt zu eigenständigem Denken? Ermächtigt zu eigenen Zukünften? Handlungsoptionen im Jetzt?</p><p><strong>Holismus:</strong> Alle Aspekte der Frage enthalten? Aus mehreren Disziplinen? Auslassungen deklariert? Konsequenzen erkennlich?</p><p><strong>Neuheit:</strong> Etwas Neues darin? Mehr als Extrapolation? Neue Perspektiven auf Gegenwart?</p><h3>Zentrale Ambivalenzen</h3><p><strong>Praktisch vs. wissenschaftlich:</strong> Wir müssen täglich so tun, als könnten wir die Zukunft vorhersagen, wissen aber wissenschaftlich, dass dies unmöglich ist.</p><p><strong>Plausibel vs. ethisch:</strong> Zukünfte sind immer beide – sowohl unter Wahrscheinlichkeits- als auch unter Werturkeilsperspektive zu beurteilen.</p><h3>Leitsätze der swissfuture-Arbeitsweise</h3><ul><li>→ Zukunft ist etwas Herzustellendes, nicht etwas Gegebenes: <strong>Ergebnisoffenheit</strong></li><li>→ Zukunft ist ein Aushandlungsprozess, nicht etwas zu Bestimmendes: <strong>Deliberation</strong></li><li>→ Zukunft ist ein demokratischer und partizipativer Prozess: <strong>Partizipation und Inklusion</strong></li><li>→ Zukunft ist ein globales, kein westeuropäisch/nordamerikanisches Projekt: <strong>Dekolonisierung</strong></li></ul>`
-            },
-            'veith-pe': {
-                title: 'Ivo Veith – Predetermined Elements als methodischer Anker (Mai 2026)',
-                type: 'sources',
-                visibility: 'intern',
-                html: `<h3>Predetermined Elements als methodischer Anker</h3><p><strong>Verfasser:</strong> Ivo Veith | <strong>Datum:</strong> Mai 2026</p><h3>Anlass</h3><p>Die «Wegweisung für belastbare Zukünfte» ist primär ein Prüfraster. Der Vorschlag: Eine bewusst eingegrenzte, faktenbasierte Liste von <strong>Predetermined Elements</strong> mit Schweizer Bezug als Fundament für Szenarioarbeit.</p><h3>Was sind Predetermined Elements?</h3><p>Entwicklungen, die in jedem plausiblen Szenario eintreten werden, weil ihre Ursachen bereits in der Vergangenheit gesetzt wurden. Sie sind:</p><ul><li><strong>Nicht Prognosen:</strong> Sie sagen nicht voraus, sondern bezeichnen robuste Grössen</li><li><strong>Nicht Trends:</strong> Ein Trend ist fortsetzbar, ein PE ist strukturell/demografisch/physisch festgelegt</li><li><strong>Kontextspezifisch:</strong> Eine Schweizer Liste unterscheidet sich grundlegend von einer globalen</li></ul><h3>Sechs Kategorien Predetermined Elements</h3><ul><li>Demografische Vorbestimmtheit (Bevölkerungswachstum, Altersstruktur)</li><li>Klimadynamik (Temperaturanstieg, Gletscherrückgang)</li><li>Physisch-geographische Konstanten (Topographie, Binnenlage)</li><li>Infrastrukturelle Pfadabhängigkeiten (Schienennetz, Stromproduktion)</li><li>Institutionelle Pfadabhängigkeiten (Föderalismus, direkte Demokratie)</li><li>Vorbestimmte Kohorten (Altersgruppen mit bekannten Eigenschaften)</li></ul><h3>Methodische Caveats</h3><ul><li>Predetermined ≠ sicher (hohe Wahrscheinlichkeit, aber nicht 100%)</li><li>Liste nicht abgeschlossen (Diskussionsvorschlag)</li><li>Grenzziehung teilweise Auslegungssache</li></ul>`
-            },
-            'veith-bildung': {
-                title: 'Ivo Veith – Nicht nur wie, sondern was (März 2026)',
-                type: 'sources',
-                visibility: 'intern',
-                html: `<h3>Nicht nur wie, sondern was – KI und Bildungsinhalte</h3><p><strong>Verfasser:</strong> Ivo Veith | <strong>Datum:</strong> 28. März 2026</p><h3>Zentrale These</h3><p>Bildungssysteme arbeiten primär am <strong>Wie</strong> (Methode), während die Frage <strong>Was</strong> (Inhalte) kaum überprüft wird. KI sollte als analytisches Instrument zur Lehrplanentwicklung dienen.</p><h3>Das zentrale Defizit</h3><p><strong>Niemand hat je systematisch überprüft, ob Lehrplaninhalte zu deklarierten Zielen führen.</strong></p><h3>Was wir wissen</h3><ul><li><strong>Kritikfähigkeit:</strong> Nicht kontextfrei – stark an Domänenwissen gebunden</li><li><strong>Entscheidungskompetenz:</strong> Spezifische Werkzeuge trainierbar, aber Transfer porös</li><li><strong>Charakterbildung:</strong> Weniger Wissen, mehr Praxis und Beziehungen</li></ul><h3>Das Problem: Lehrpläne als Sedimentschichten</h3><p>Lehrpläne entstehen nicht durch systematische Analyse, sondern durch Kompromisse zwischen Fachverbänden, Wirtschaft und Tradition. Vieles steht darin, weil es dort immer schon stand.</p><h3>KI-analytische Ansätze</h3><ul><li><strong>Kohärenzanalyse:</strong> Welche Inhalte unterstützen welche Ziele?</li><li><strong>Wirkungsanalyse:</strong> Längsschnittdaten – welche Inhalte korrelieren mit Outcomes?</li><li><strong>Komparative Analyse:</strong> OECD-Länder vergleichen</li></ul><h3>Der blinde Fleck</h3><p>Diese Argumente operieren mit linearer Annahme. Wenn sich KI exponentiell entwickelt, verschieben sich die Fragen fundamental.</p>`
-            },
-            'swissfuture-2024': {
-                title: 'swissfuture Magazin 03–04/24: Positive Zukunftsbilder',
-                type: 'sources',
-                visibility: 'intern',
-                html: `<h3>Positive Zukunftsbilder</h3><p><strong>Quelle:</strong> swissfuture Magazin für Zukünfte, 51. Jahrgang, Ausgabe 03–04/2024</p><h3>Zentrale These</h3><p><strong>Positive Zukunftsbilder sind neurokognitive und soziale Infrastruktur für Verhaltenstransformation.</strong> Sie funktionieren durch drei Mechanismen: (1) Neurobiologische Aktivierung (präfrontaler Cortex, Dopamin), (2) emotionale Brücke über den Say-Do-Gap (78% kennen Probleme, aber keine Verhaltensänderung), (3) geteilte Bewegungsidentität.</p><h3>Sechs Hauptbeiträge</h3><ul><li><strong>Christoph Wey:</strong> Positive Narrative ohne Verzichts-Framing</li><li><strong>Bendig & Baumann:</strong> Warme Verhaltenstransformation durch 4 Narrative-Territorien</li><li><strong>Severin Marty:</strong> Lösungsorientierte Klimakommunikation</li><li><strong>Moritz Jäger:</strong> Stories for Future – 7 Akte der Narrativ-Entwicklung</li><li><strong>Stella Schaller:</strong> Realutopien als regenerative Visionen (fotorealistische Visualisierungen 2045)</li><li><strong>Ramona Sprenger:</strong> Digitale Zukünfte demokratisch gestalten</li></ul><h3>Kernerkenntnisse</h3><ul><li><strong>Say-Do-Gap:</strong> 78% sagen Nachhaltigkeit wichtig, aber Nachfrage schwach</li><li><strong>Regeneration statt Nachhaltigkeit:</strong> Heilung und Aufbau statt Erhalt und Verzicht</li><li><strong>4 Narrative-Territorien:</strong> Selbstwirksamkeit, Co-Evolution, Gesundheit, Zirkularität</li><li><strong>Lokalität:</strong> 10-km-Radius als Erfahrungsraum, nicht abstrakte Globalziele</li></ul>`
-            },
-            'predetermined-elements': {
-                title: 'Predetermined Elements',
-                type: 'concepts',
-                visibility: 'intern',
-                html: `<h3>Predetermined Elements</h3><p><strong>Definition:</strong> Entwicklungen, die in jedem plausiblen Szenario eintreten werden, weil ihre Ursachen bereits in der Vergangenheit gesetzt wurden.</p><h3>Abgrenzungen</h3><ul><li><strong>Nicht Prognosen:</strong> Sie sagen nicht voraus, sondern bezeichnen robuste Grössen</li><li><strong>Nicht Trends:</strong> Ein Trend ist eine Bewegung, die fortgesetzt werden könnte. Ein PE ist strukturell, demografisch oder physisch festgelegt.</li><li><strong>Kontextspezifisch:</strong> Eine Schweizer Liste unterscheidet sich von einer globalen</li></ul><h3>Methodischer Nutzen</h3><ul><li><strong>Robustheit:</strong> Szenarien variieren nur das Offene, nicht das Vorbestimmte</li><li><strong>Ehrlichkeit:</strong> Klare Trennung von Vorgegeben und Gestaltbar</li></ul>`
-            },
-            'scenario-planning': {
-                title: 'Szenarioplanung',
-                type: 'concepts',
-                visibility: 'intern',
-                html: `<h3>Szenarioplanung</h3><p><strong>Definition:</strong> Strukturierte Methode zur Erkundung mehrerer plausibiler Zukünfte.</p><h3>Ursprung</h3><p>Entwickelt von Pierre Wack (Royal Dutch Shell, 1970er) als Antwort auf Unsicherheit. Shell nutzte Szenarien zur Vorbereitung auf die Ölkrise 1973.</p><h3>Kernprinzipien</h3><ul><li><strong>Plausibilität:</strong> Nicht Wahrscheinlichkeit, sondern interne Konsistenz</li><li><strong>Mehrheit:</strong> 3–4 Szenarien, um mentale Flexibilität zu erzeugen</li><li><strong>Strukturelle Festlegung:</strong> Predetermined Elements trennen von Szenario-Variablen</li></ul><h3>Nicht: Prognosen oder Trends</h3><p>Szenarios erkunden, wie sich die Zukunft radikalisiert, nicht wie sie linear fortfährt.</p>`
-            },
-            'swiss-method': {
-                title: 'Swissfuture-Methode für belastbare Zukünfte',
-                type: 'concepts',
-                visibility: 'intern',
-                html: `<h3>Swissfuture-Methode</h3><p>Die «Wegweisung für belastbare Zukünfte» definiert <strong>sieben Qualitätsdimensionen</strong> für Zukunftsarbeit.</p><h3>Die sieben Dimensionen</h3><ol><li><strong>Plausibilität:</strong> Auf verfügbarem Wissen basiert?</li><li><strong>Methodische Transparenz:</strong> Wie entstanden die Bilder?</li><li><strong>Partizipation:</strong> Wessen Stimmen sind beteiligt?</li><li><strong>Pluralität:</strong> Sind unterschiedliche Wertesysteme repräsentiert?</li><li><strong>Empowerment:</strong> Befähigen zur Handlung?</li><li><strong>Holismus:</strong> Sind alle Dimensionen integriert?</li><li><strong>Neuheit:</strong> Bieten sie echte neue Einsichten?</li></ol><h3>Die Operationalisierungsfrage</h3><p>Predetermined Elements machen die Wegweisung praktisch anwendbar, indem sie das «Plausible» konkretisieren.</p>`
-            },
-            'curriculum-design': {
-                title: 'Lehrplanentwicklung (Curriculum Design)',
-                type: 'concepts',
-                visibility: 'intern',
-                html: `<h3>Lehrplanentwicklung</h3><p><strong>Zentrale unbeantwortete Frage:</strong> Ob die Summe dessen, was in einem Lehrplan steht, tatsächlich zu deklarierten Zielen führt.</p><h3>Das Problem</h3><p>Lehrpläne entstehen nicht durch systematische Analyse, sondern durch Kompromisse zwischen Fachverbänden, Wirtschaft und Tradition.</p><h3>Sedimentschichten statt Strategie</h3><ul><li>Vieles steht darin, <strong>weil es dort immer schon stand</strong></li><li>Vieles fehlt, <strong>weil keine Lobby dafür kämpft</strong></li><li>Europäische Revision alle <strong>10 Jahre</strong> – zu langsam für exponentielle Dynamik</li></ul><h3>Mögliche Shifts</h3><ul><li><strong>Von Inhaltsfixierung zu Fähigkeitsfixierung:</strong> Inhalte sind Vehikel, austauschbar</li><li><strong>Von statisch zu adaptiv:</strong> Lebende Systeme mit kontinuierlichen Datenabgleichen</li><li><strong>Von politisch zu analytisch:</strong> KI-gestützte Analyse, nicht nur Verhandlung</li></ul>`
-            },
-            'ai-education': {
-                title: 'KI in der Bildung',
-                type: 'concepts',
-                visibility: 'intern',
-                html: `<h3>KI in der Bildung</h3><h3>Aktuelle Diskurse</h3><ul><li><strong>KI-Literacy:</strong> KI als Unterrichtsgegenstand</li><li><strong>KI als Werkzeug:</strong> Adaptive Systeme, KI-Tutoren</li></ul><h3>Die kritische Lücke</h3><p>Niemand nutzt KI zur Analyse von Lehrplänen selbst. Die Diskussion <strong>setzt den Lehrplan als gegeben voraus</strong>.</p><h3>KI für Lehrplananalyse</h3><ul><li><strong>Kohärenzanalyse:</strong> Welche Inhalte unterstützen welche Ziele?</li><li><strong>Wirkungsanalyse:</strong> Längsschnittdaten – welche Inhalte korrelieren mit Outcomes?</li><li><strong>Komparative Analyse:</strong> Was funktioniert in anderen Ländern?</li></ul><h3>Goodhart's Dilemma</h3><p>KI kann nur optimieren, was sich messen lässt. Das Wesentliche an Bildung entzieht sich der Messung. Risiko: Wir schaffen das Unmessbare ab, das für Mündigkeit entscheidend ist.</p>`
-            },
-            'positive-zukunftsbilder': {
-                title: 'Positive Zukunftsbilder',
-                type: 'concepts',
-                visibility: 'intern',
-                html: `<h3>Positive Zukunftsbilder</h3><p><strong>Definition:</strong> Kohärente, plausible Darstellungen wünschenswerter zukünftiger Zustände, die als neurokognitive und soziale Infrastruktur für Verhaltensveränderung wirken.</p><h3>Zentrale These</h3><p><strong>Positive Zukunftsbilder sind nicht schmückendes Beiwerk, sondern die Voraussetzung für Verhaltenstransformation auf Bevölkerungsebene.</strong> Sie funktionieren durch drei Mechanismen:</p><ul><li><strong>Neurokognitive Aktivierung:</strong> Positive Ziele aktivieren präfrontalen Cortex, fördern Dopamin (vs. Angst-Framing, das Amygdala aktiviert)</li><li><strong>Emotionale Brücke über Say-Do-Gap:</strong> 78% kennen Probleme, aber keine Verhaltensänderung. Positive Narrative heilen diesen Gap durch emotionale Anziehung statt rationales Sollen</li><li><strong>Geteilte Bewegungsidentität:</strong> Fragmentierte Gruppen (Öko-Aktivisten, Tech-Optimisten) erkennen sich in gemeinsamen Gestaltungsprojekten</li></ul><h3>7 Elemente wirksamer Positive Zukunftsbilder</h3><ul><li><strong>Regeneration statt Nachhaltigkeit:</strong> Heilung, Aufbau, win-win statt Erhalt und Verzicht</li><li><strong>Lokalität:</strong> 10-km-Radius als Erfahrungsraum, nicht abstrakte Globalziele</li><li><strong>Gewinn statt Verzicht:</strong> Freiheit, Gesundheit, Gemeinschaft, Vielfalt</li><li><strong>Realutopien, nicht Romantik:</strong> Bereits funktionierende Modelle (Seestadt Wien, Dachfarmen Paris), nicht idyllische Hippie-Utopien</li><li><strong>4 Narrative-Territorien:</strong> Selbstwirksamkeit, Co-Evolution, Gesundheit, Zirkularität (nicht eine zentrale Story)</li><li><strong>Alltagsmenschen als Protagonist:innen:</strong> Nicht Held:innen oder Expert:innen</li><li><strong>Resiliente Hoffnung:</strong> Anerkennung von Krisen + Glaube, dass Zukunft gestaltbar ist</li></ul><h3>Zentrale Caveats</h3><ul><li><strong>Authentizität-Grenze:</strong> Risiko von Schönmalerei, die bei Kontakt mit Realität kollabiert</li><li><strong>Fragmentierungsproblem:</strong> Wie baut man Brücken zwischen verschiedenen gesellschaftlichen Bubbles?</li><li><strong>Skalierungsfrage:</strong> Sind lokale Realutopien auf nationale/globale Ebene übertragbar?</li><li><strong>Politische Blindheit:</strong> Narrative-Ebene reicht nicht für institutionelle/politische Transformationen</li></ul>`
-            }
-        };
+        // ---- Konfiguration ----
+        const TYPE_ORDER = ['theses', 'concepts', 'sources', 'people'];
+        const PLURAL = { theses: 'Thesen', concepts: 'Konzepte', sources: 'Quellen', people: 'Personen' };
+        const SINGULAR = { theses: 'These', concepts: 'Konzept', sources: 'Quelle', people: 'Person' };
+        const BADGE_TYPE = { theses: 'badge-thesis', concepts: 'badge-concept', sources: 'badge-source', people: 'badge-person' };
+        const SECTION_HEADER_MAP = { 'Thesen': 'theses', 'Konzepte': 'concepts', 'Quellen': 'sources', 'Personen': 'people' };
 
-        function openModal(key) {
-            const content = wikiContent[key];
-            if (!content) return;
-            
-            document.getElementById('modal-title').textContent = content.title;
-            const badgeType = content.type === 'sources' ? 'badge-source' : 'badge-concept';
-            const typeLabel = content.type === 'sources' ? 'Quelle' : 'Konzept';
-            
-            document.getElementById('modal-meta').innerHTML = `
-                <span class="badge ${badgeType}">${typeLabel}</span>
-                <span class="badge badge-intern">${content.visibility === 'intern' ? 'Intern' : 'Extern'}</span>
-                <span>2026-09-23</span>
-            `;
-            
-            document.getElementById('modal-body').innerHTML = content.html;
-            document.getElementById('modal').classList.add('active');
+        let pages = [];
+        let slugMap = {};
+
+        // ---- index.md laden und parsen ----
+        async function init() {
+            try {
+                const res = await fetch('index.md');
+                if (!res.ok) throw new Error('index.md nicht erreichbar (Status ' + res.status + ')');
+                const text = await res.text();
+                pages = parseIndex(text);
+                buildSlugMap();
+                render();
+            } catch (err) {
+                showError('Fehler beim Laden von index.md: ' + err.message + '. Läuft die Seite über einen HTTP-Server (nicht per Doppelklick geöffnet)?');
+            }
+        }
+
+        function parseIndex(text) {
+            const lines = text.split('\n');
+            const lineRe = /^-\s*\[(.*?)\]\((.*?)\)\s*[—-]\s*(.*?)\s*\|\s*\*(intern|extern)\*\s*$/;
+            let currentType = null;
+            const result = [];
+            for (const raw of lines) {
+                const line = raw.trim();
+                const headerMatch = line.match(/^##\s+(Thesen|Konzepte|Quellen|Personen)/);
+                if (headerMatch) { currentType = SECTION_HEADER_MAP[headerMatch[1]]; continue; }
+                if (/^##\s+Legende/.test(line)) { currentType = null; continue; }
+                if (!currentType) continue;
+                const m = line.match(lineRe);
+                if (m) {
+                    const [, title, path, summary, visibility] = m;
+                    const slug = path.trim().split('/').pop().replace(/\.md$/, '');
+                    result.push({
+                        title: title.trim(), path: path.trim(), summary: summary.trim(),
+                        visibility, type: currentType, slug
+                    });
+                }
+            }
+            return result;
+        }
+
+        function buildSlugMap() {
+            slugMap = {};
+            pages.forEach(p => { slugMap[p.slug.toLowerCase()] = p; });
+        }
+
+        // ---- Rendering ----
+        function render() {
+            document.getElementById('total-pages').textContent = pages.length;
+            document.getElementById('total-sources').textContent = pages.filter(p => p.type === 'sources').length;
+            document.getElementById('total-concepts').textContent = pages.filter(p => p.type === 'concepts').length;
+            document.getElementById('total-theses').textContent = pages.filter(p => p.type === 'theses').length;
+            document.getElementById('footer-text').textContent = 'FoE-Wiki • ' + new Date().toISOString().slice(0, 10) + ' • ' + pages.length + ' Seiten insgesamt';
+
+            const filterBar = document.getElementById('filter-buttons');
+            filterBar.innerHTML = '';
+            const allBtn = makeFilterButton('all', 'Alle', true);
+            filterBar.appendChild(allBtn);
+            TYPE_ORDER.forEach(type => filterBar.appendChild(makeFilterButton(type, PLURAL[type], false)));
+
+            const sectionsEl = document.getElementById('sections');
+            sectionsEl.innerHTML = '';
+            TYPE_ORDER.forEach(type => sectionsEl.appendChild(renderSection(type)));
+
+            wireControls();
+        }
+
+        function makeFilterButton(filter, label, active) {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn' + (active ? ' active' : '');
+            btn.dataset.filter = filter;
+            btn.textContent = label;
+            return btn;
+        }
+
+        function renderSection(type) {
+            const items = pages.filter(p => p.type === type);
+            const section = document.createElement('div');
+            section.className = 'section';
+            section.dataset.section = type;
+
+            const h2 = document.createElement('h2');
+            h2.textContent = PLURAL[type];
+            section.appendChild(h2);
+
+            const pagesDiv = document.createElement('div');
+            pagesDiv.className = 'pages';
+
+            if (items.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'empty';
+                empty.textContent = 'Noch keine ' + PLURAL[type] + ' angelegt.';
+                pagesDiv.appendChild(empty);
+            } else {
+                items.forEach(p => pagesDiv.appendChild(renderPageItem(p)));
+            }
+
+            section.appendChild(pagesDiv);
+            return section;
+        }
+
+        function renderPageItem(p) {
+            const item = document.createElement('div');
+            item.className = 'page-item';
+            item.dataset.type = p.type;
+            item.dataset.search = (p.title + ' ' + p.summary).toLowerCase();
+            item.addEventListener('click', () => openPage(p.path));
+
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'page-title';
+            titleDiv.textContent = p.title;
+
+            const metaDiv = document.createElement('div');
+            metaDiv.className = 'page-meta';
+            metaDiv.innerHTML =
+                '<span class="badge ' + BADGE_TYPE[p.type] + '">' + SINGULAR[p.type] + '</span>' +
+                '<span class="badge badge-' + p.visibility + '">' + (p.visibility === 'extern' ? 'Extern' : 'Intern') + '</span>';
+
+            item.appendChild(titleDiv);
+            item.appendChild(metaDiv);
+            return item;
+        }
+
+        // ---- Modal / einzelne Seite laden ----
+        async function openPage(path) {
+            const modal = document.getElementById('modal');
+            const titleEl = document.getElementById('modal-title');
+            const metaEl = document.getElementById('modal-meta');
+            const bodyEl = document.getElementById('modal-body');
+
+            titleEl.textContent = 'Laden...';
+            metaEl.innerHTML = '';
+            bodyEl.innerHTML = '';
+            modal.classList.add('active');
+
+            try {
+                const res = await fetch(path);
+                if (!res.ok) throw new Error('Datei nicht erreichbar (Status ' + res.status + '): ' + path);
+                const raw = await res.text();
+                const { frontmatter, body } = parseFrontmatter(raw);
+                const type = guessTypeFromPath(path);
+
+                titleEl.textContent = frontmatter.title || path;
+                metaEl.innerHTML =
+                    '<span class="badge ' + (BADGE_TYPE[type] || '') + '">' + (SINGULAR[type] || '') + '</span>' +
+                    '<span class="badge badge-' + (frontmatter.visibility || 'intern') + '">' + (frontmatter.visibility === 'extern' ? 'Extern' : 'Intern') + '</span>' +
+                    '<span>' + (frontmatter.updated || frontmatter.created || '') + '</span>';
+
+                let html = marked.parse(body);
+                html = resolveWikilinks(html);
+                bodyEl.innerHTML = html;
+
+                bodyEl.querySelectorAll('a.wikilink').forEach(a => {
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openPage(a.dataset.path);
+                    });
+                });
+            } catch (err) {
+                titleEl.textContent = 'Fehler beim Laden';
+                bodyEl.innerHTML = '<p>' + escapeHtml(err.message) + '</p>';
+            }
+        }
+
+        function parseFrontmatter(raw) {
+            const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
+            if (!m) return { frontmatter: {}, body: raw };
+            const frontmatter = {};
+            m[1].split('\n').forEach(line => {
+                const idx = line.indexOf(':');
+                if (idx === -1) return;
+                const key = line.slice(0, idx).trim();
+                let value = line.slice(idx + 1).trim();
+                if (value.startsWith('[') && value.endsWith(']')) {
+                    value = value.slice(1, -1).split(',').map(s => s.trim()).filter(Boolean);
+                }
+                frontmatter[key] = value;
+            });
+            return { frontmatter, body: m[2] };
+        }
+
+        function resolveWikilinks(html) {
+            return html.replace(/\[\[([^\]]+)\]\]/g, (match, slug) => {
+                const key = slug.trim().toLowerCase();
+                const target = slugMap[key];
+                if (target) {
+                    return '<a href="#" class="wikilink" data-path="' + target.path + '">' + escapeHtml(target.title) + '</a>';
+                }
+                return '<span class="wikilink-broken" title="Seite nicht gefunden: ' + escapeHtml(slug) + '">' + escapeHtml(slug) + '</span>';
+            });
+        }
+
+        function guessTypeFromPath(path) {
+            for (const type of TYPE_ORDER) {
+                if (path.indexOf('wiki/' + type + '/') !== -1) return type;
+            }
+            return '';
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str == null ? '' : String(str);
+            return div.innerHTML;
+        }
+
+        function showError(msg) {
+            const el = document.getElementById('app-error');
+            el.textContent = msg;
+            el.style.display = 'block';
         }
 
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
         }
 
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
+        // ---- Suche / Filter ----
+        function wireControls() {
+            const searchInput = document.getElementById('search');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            let activeFilter = 'all';
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
-        });
+            function updateDisplay() {
+                const searchTerm = searchInput.value.toLowerCase();
+                document.querySelectorAll('.page-item').forEach(item => {
+                    const matchesSearch = searchTerm === '' || (item.dataset.search || '').includes(searchTerm);
+                    const matchesFilter = activeFilter === 'all' || activeFilter === item.dataset.type;
+                    item.classList.toggle('hidden', !(matchesSearch && matchesFilter));
+                });
+                document.querySelectorAll('.section').forEach(section => {
+                    const visible = section.querySelectorAll('.page-item:not(.hidden)').length;
+                    const hasEmptyState = section.querySelector('.empty');
+                    section.style.opacity = (visible === 0 && !hasEmptyState) ? '0.5' : '1';
+                });
+            }
 
-        // Search and Filter
-        const searchInput = document.getElementById('search');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const pageItems = document.querySelectorAll('.page-item');
-        const sections = document.querySelectorAll('.section');
-
-        let activeFilter = 'all';
-
-        function updateDisplay() {
-            const searchTerm = searchInput.value.toLowerCase();
-
-            pageItems.forEach(item => {
-                const type = item.dataset.type;
-                const search = item.dataset.search || '';
-                const matchesSearch = search.includes(searchTerm) || searchTerm === '';
-                const matchesFilter = activeFilter === 'all' || activeFilter === type;
-                
-                if (matchesSearch && matchesFilter) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-
-            // Highlight empty sections
-            sections.forEach(section => {
-                const visibleItems = section.querySelectorAll('.page-item:not(.hidden)');
-                if (visibleItems.length === 0) {
-                    section.style.opacity = '0.5';
-                } else {
-                    section.style.opacity = '1';
-                }
+            searchInput.addEventListener('input', updateDisplay);
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilter = btn.dataset.filter;
+                    updateDisplay();
+                });
             });
         }
 
-        searchInput.addEventListener('input', updateDisplay);
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeFilter = btn.dataset.filter;
-                updateDisplay();
-            });
+        document.getElementById('modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
         });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
