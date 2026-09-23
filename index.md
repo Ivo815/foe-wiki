@@ -26,6 +26,8 @@ Noch keine Thesen angelegt.
 
 - [KI in der Bildung](wiki/concepts/ai-in-education.md) — KI als Unterrichtsgegenstand, Werkzeug und analytisches Instrument für Lehrplananalyse | *intern*
 
+- [Positive Zukunftsbilder](wiki/concepts/positive-zukunftsbilder.md) — Kohärente Darstellungen wünschenswerter Zukünfte als neurokognitive und soziale Infrastruktur für Verhaltensveränderung | *intern*
+
 ---
 
 ## Quellen (`wiki/sources/`)
@@ -35,6 +37,8 @@ Noch keine Thesen angelegt.
 - [Ivo Veith – Predetermined Elements als methodischer Anker (Mai 2026)](wiki/sources/veith-predetermined-elements-260526.md) — Diskussionspapier zur Konkretisierung der swissfuture-Methode für Szenarien «Schweiz 2050/2055» | *intern*
 
 - [Ivo Veith – Nicht nur wie, sondern was (März 2026)](wiki/sources/veith-bildungsinhalte-ki-260328.md) — Warum KI die Frage nach Bildungsinhalten neu aufwirft; Lehrpläne als epistemisches Problem | *intern*
+
+- [swissfuture Magazin 03–04/24: Positive Zukunftsbilder](wiki/sources/swissfuture-2024-positive-zukunftsbilder.md) — Sechs Beiträge zur Narrativ-Arbeit für Verhaltenstransformation (Wey, Bendig/Baumann, Marty, Jäger, Schaller, Sprenger); Focal Point: Regeneration statt Nachhaltigkeit | *intern*
 
 ---
 
@@ -51,6 +55,6 @@ Noch keine Personenseiten angelegt.
 - **intern** – Seite ist noch nicht für Veröffentlichung freigegeben
 - **extern** – Seite ist für Veröffentlichung freigegeben (unterliegt Anonymitätsklausel, Visibility-Regel)
 
-**Datum des Katalogs:** 2026-09-22
+**Datum des Katalogs:** 2026-09-23
 
 Siehe auch: [`log.md`](log.md) für chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge.
