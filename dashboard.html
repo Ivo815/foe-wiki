@@ -139,11 +139,11 @@
 
         <div class="stats">
             <div class="stat-card">
-                <div class="number" id="total-pages">8</div>
+                <div class="number" id="total-pages">9</div>
                 <div class="label">Seiten</div>
             </div>
             <div class="stat-card">
-                <div class="number" id="total-sources">3</div>
+                <div class="number" id="total-sources">4</div>
                 <div class="label">Quellen</div>
             </div>
             <div class="stat-card">
@@ -170,6 +170,10 @@
         <div class="section" data-section="sources">
             <h2>Quellen</h2>
             <div class="pages">
+                <div class="page-item" onclick="openModal('swissfuture-wegweisung')" data-type="sources" data-search="swissfuture wegweisung belastbare zukünfte dimensionen prüffragen">
+                    <div class="page-title">swissfuture – Wegweisung für belastbare Zukünfte</div>
+                    <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
+                </div>
                 <div class="page-item" onclick="openModal('veith-pe')" data-type="sources" data-search="veith predetermined elements scenario planning">
                     <div class="page-title">Ivo Veith – Predetermined Elements (Mai 2026)</div>
                     <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
@@ -215,7 +219,7 @@
             </div>
         </div>
 
-        <footer><p>FoE-Wiki • 2026-09-23 • 8 Seiten Insgesamt</p></footer>
+        <footer><p>FoE-Wiki • 2026-09-23 • 9 Seiten Insgesamt</p></footer>
     </div>
 
     <div id="modal" class="modal">
@@ -230,6 +234,12 @@
 
     <script>
         const wikiContent = {
+            'swissfuture-wegweisung': {
+                title: 'swissfuture – Wegweisung für belastbare Zukünfte',
+                type: 'sources',
+                visibility: 'intern',
+                html: `<h3>swissfuture – Wegweisung für belastbare Zukünfte</h3><p><strong>Quelle:</strong> Schweizerische Vereinigung für Zukunftsforschung (swissfuture) | 2026</p><h3>Zweck</h3><p>Die Wegweisung ist ein Prüfraster zur Bewertung von Zukunftsbildern – eigenen und fremden – mit sieben Qualitätsdimensionen und je 3–4 operativen Kontrollfrages pro Dimension.</p><h3>Die sieben Dimensionen</h3><ol><li><strong>Plausibilität</strong> – Ist das Zukunftsbild in sich kohärent und frei von logischen Widersprüchen?</li><li><strong>Methodische Transparenz</strong> – Sind Quellen, Methoden, Annahmen und Imaginationen deutlich voneinander unterschieden?</li><li><strong>Partizipation</strong> – Sind alle relevanten Akteur:innen (menschlich und nichtmenschlich) miteinbezogen?</li><li><strong>Pluralität</strong> – Ist das Zukunftsbild als eine von vielen möglichen Zukünften dargestellt?</li><li><strong>Empowerment / Ermächtigung</strong> – Befähigt das Bild zum eigenständigen Denken und Handeln?</li><li><strong>Ganzheitlichkeit / Holismus</strong> – Werden alle Aspekte (Disziplinen, Perspektiven) des Themas abgebildet?</li><li><strong>Neuartigkeit / Neuheit</strong> – Bietet das Bild echte neue Perspektiven, nicht bloss Extrapolation des Bestehenden?</li></ol><h3>Operationalisierung pro Dimension</h3><p><strong>Plausibilität:</strong> Ist kohärent? Ist konsistent? Ist grundsätzlich möglich/denkbar?</p><p><strong>Methodische Transparenz:</strong> Auf welchen Grundlagen aufgebaut? Vermutungen deklariert? Methoden-Wahl offengelegt? Prozess einsehbar?</p><p><strong>Partizipation:</strong> Akteur:innen identifiziert? Methodenadäquate Beteiligung? Alle in Prozessschritten involved?</p><p><strong>Pluralität:</strong> Als eine von vielen dargestellt? Gestaltbar und ergebnisoffen?</p><p><strong>Empowerment:</strong> Befähigt zu eigenständigem Denken? Ermächtigt zu eigenen Zukünften? Handlungsoptionen im Jetzt?</p><p><strong>Holismus:</strong> Alle Aspekte der Frage enthalten? Aus mehreren Disziplinen? Auslassungen deklariert? Konsequenzen erkennlich?</p><p><strong>Neuheit:</strong> Etwas Neues darin? Mehr als Extrapolation? Neue Perspektiven auf Gegenwart?</p><h3>Zentrale Ambivalenzen</h3><p><strong>Praktisch vs. wissenschaftlich:</strong> Wir müssen täglich so tun, als könnten wir die Zukunft vorhersagen, wissen aber wissenschaftlich, dass dies unmöglich ist.</p><p><strong>Plausibel vs. ethisch:</strong> Zukünfte sind immer beide – sowohl unter Wahrscheinlichkeits- als auch unter Werturkeilsperspektive zu beurteilen.</p><h3>Leitsätze der swissfuture-Arbeitsweise</h3><ul><li>→ Zukunft ist etwas Herzustellendes, nicht etwas Gegebenes: <strong>Ergebnisoffenheit</strong></li><li>→ Zukunft ist ein Aushandlungsprozess, nicht etwas zu Bestimmendes: <strong>Deliberation</strong></li><li>→ Zukunft ist ein demokratischer und partizipativer Prozess: <strong>Partizipation und Inklusion</strong></li><li>→ Zukunft ist ein globales, kein westeuropäisch/nordamerikanisches Projekt: <strong>Dekolonisierung</strong></li></ul>`
+            },
             'veith-pe': {
                 title: 'Ivo Veith – Predetermined Elements als methodischer Anker (Mai 2026)',
                 type: 'sources',
@@ -297,7 +307,7 @@
             document.getElementById('modal-meta').innerHTML = `
                 <span class="badge ${badgeType}">${typeLabel}</span>
                 <span class="badge badge-intern">${content.visibility === 'intern' ? 'Intern' : 'Extern'}</span>
-                <span>2026-09-22</span>
+                <span>2026-09-23</span>
             `;
             
             document.getElementById('modal-body').innerHTML = content.html;
