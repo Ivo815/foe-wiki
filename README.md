@@ -4,9 +4,9 @@ Persistente Wissensbasis der **swissfuture-Fachgruppe Futures of Education (FoE)
 
 ## 📖 Zugang
 
-**Dashboard (zum Browsen):** https://swissfuture.github.io/foe-wiki/dashboard.html
+**Dashboard (zum Browsen):** https://ivo815.github.io/foe-wiki/dashboard.html
 
-**Rohquellen & Markdown:** [Dieses Repository](https://github.com/swissfuture/foe-wiki)
+**Rohquellen & Markdown:** [Dieses Repository](https://github.com/Ivo815/foe-wiki)
 
 ## 📂 Struktur
 
@@ -21,34 +21,24 @@ foe-wiki/
 ├── index.md                     # Katalog aller Seiten
 ├── log.md                       # Chronologisches Prozessprotokoll
 ├── CLAUDE.md                    # Projektrichtlinien für KI-Arbeit
-└── dashboard.html               # Interaktive Weboberfläche
+└── dashboard.html               # Interaktive Weboberfläche (liest index.md und wiki/ zur Laufzeit)
 ```
 
-## 🗂️ Seiten (aktuell)
+## 🗂️ Aktueller Stand
 
-### Quellen (2)
-- [Ivo Veith – Predetermined Elements als methodischer Anker](wiki/sources/veith-predetermined-elements-260526.md) (Mai 2026)
-- [Ivo Veith – Nicht nur wie, sondern was](wiki/sources/veith-bildungsinhalte-ki-260328.md) (März 2026)
-
-### Konzepte (5)
-- Predetermined Elements
-- Szenarioplanung
-- Swissfuture-Methode für belastbare Zukünfte
-- Lehrplanentwicklung (Curriculum Design)
-- KI in der Bildung
-
-### Thesen (0)
-*(Zu erstellen aus destillierten Erkenntnissen)*
+Die aktuelle Anzahl und Liste aller Seiten steht in [`index.md`](index.md), oder direkt im [Dashboard](https://ivo815.github.io/foe-wiki/dashboard.html) sichtbar. Wird hier bewusst nicht dupliziert, damit diese README nicht bei jedem Ingest von Hand nachgeführt werden muss.
 
 ## 🔄 Mitarbeit
 
 ### Für Leser:innen
-Öffne das [Dashboard](https://swissfuture.github.io/foe-wiki/dashboard.html) im Browser. Keine Installation nötig.
 
-### Für Autoren:innen
-```bash
+Öffne das [Dashboard](https://ivo815.github.io/foe-wiki/dashboard.html) im Browser. Keine Installation nötig.
+
+### Für Autor:innen
+
+```
 # Repository clonen
-git clone https://github.com/swissfuture/foe-wiki.git
+git clone https://github.com/Ivo815/foe-wiki.git
 cd foe-wiki
 
 # Neue Seite hinzufügen oder bestehende bearbeiten
@@ -56,11 +46,11 @@ cd foe-wiki
 
 # Änderungen committen und pushen
 git add .
-git commit -m "[INGEST] neue Quelle hinzugefügt" 
+git commit -m "[INGEST] neue Quelle hinzugefügt"
 git push
 ```
 
-Prozess siehe auch: [CLAUDE.md](CLAUDE.md) → Ingest, Query, Lint
+Prozess siehe auch: [CLAUDE.md](https://github.com/Ivo815/foe-wiki/blob/main/CLAUDE.md) → Ingest, Query, Lint
 
 ## 📋 Richtlinien
 
@@ -70,7 +60,7 @@ Prozess siehe auch: [CLAUDE.md](CLAUDE.md) → Ingest, Query, Lint
 - **Visibility-Regel:** `intern` (Standard) oder `extern` (nach Freigabe)
 - **Quellendisziplin:** Aussagen brauchen belastbare Quellen
 
-Siehe [CLAUDE.md](CLAUDE.md) für ausführliche Richtlinien.
+Siehe [CLAUDE.md](https://github.com/Ivo815/foe-wiki/blob/main/CLAUDE.md) für ausführliche Richtlinien.
 
 ## 📝 Protokoll
 
@@ -80,14 +70,10 @@ Format: `[DATUM] [OPERATIONSTYP] Beschreibung`
 
 ## 👥 Team
 
-**Maintainer:** Ivo Veith (@ivoogleVeith)
+**Maintainer:** Ivo Veith
 
 **Fachgruppe:** swissfuture Futures of Education (FoE)
 
 ## 📄 Lizenz
 
 Diese Wissensbasis ist intern für swissfuture. Siehe Visibility-Richtlinien für externe Freigaben.
-
----
-
-**Zuletzt aktualisiert:** 2026-09-22
