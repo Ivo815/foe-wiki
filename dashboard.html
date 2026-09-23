@@ -139,15 +139,15 @@
 
         <div class="stats">
             <div class="stat-card">
-                <div class="number" id="total-pages">7</div>
+                <div class="number" id="total-pages">8</div>
                 <div class="label">Seiten</div>
             </div>
             <div class="stat-card">
-                <div class="number" id="total-sources">2</div>
+                <div class="number" id="total-sources">3</div>
                 <div class="label">Quellen</div>
             </div>
             <div class="stat-card">
-                <div class="number" id="total-concepts">5</div>
+                <div class="number" id="total-concepts">6</div>
                 <div class="label">Konzepte</div>
             </div>
             <div class="stat-card">
@@ -178,6 +178,10 @@
                     <div class="page-title">Ivo Veith – Nicht nur wie, sondern was (März 2026)</div>
                     <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
                 </div>
+                <div class="page-item" onclick="openModal('swissfuture-2024')" data-type="sources" data-search="swissfuture positive zukunftsbilder narrative regeneration">
+                    <div class="page-title">swissfuture Magazin 03–04/24: Positive Zukunftsbilder</div>
+                    <div class="page-meta"><span class="badge badge-source">Quelle</span><span class="badge badge-intern">Intern</span></div>
+                </div>
             </div>
         </div>
 
@@ -204,10 +208,14 @@
                     <div class="page-title">KI in der Bildung</div>
                     <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
                 </div>
+                <div class="page-item" onclick="openModal('positive-zukunftsbilder')" data-type="concepts" data-search="positive zukunftsbilder narrative regeneration transformation">
+                    <div class="page-title">Positive Zukunftsbilder</div>
+                    <div class="page-meta"><span class="badge badge-concept">Konzept</span><span class="badge badge-intern">Intern</span></div>
+                </div>
             </div>
         </div>
 
-        <footer><p>FoE-Wiki • 2026-09-22 • 7 Seiten Insgesamt</p></footer>
+        <footer><p>FoE-Wiki • 2026-09-23 • 8 Seiten Insgesamt</p></footer>
     </div>
 
     <div id="modal" class="modal">
@@ -233,6 +241,12 @@
                 type: 'sources',
                 visibility: 'intern',
                 html: `<h3>Nicht nur wie, sondern was – KI und Bildungsinhalte</h3><p><strong>Verfasser:</strong> Ivo Veith | <strong>Datum:</strong> 28. März 2026</p><h3>Zentrale These</h3><p>Bildungssysteme arbeiten primär am <strong>Wie</strong> (Methode), während die Frage <strong>Was</strong> (Inhalte) kaum überprüft wird. KI sollte als analytisches Instrument zur Lehrplanentwicklung dienen.</p><h3>Das zentrale Defizit</h3><p><strong>Niemand hat je systematisch überprüft, ob Lehrplaninhalte zu deklarierten Zielen führen.</strong></p><h3>Was wir wissen</h3><ul><li><strong>Kritikfähigkeit:</strong> Nicht kontextfrei – stark an Domänenwissen gebunden</li><li><strong>Entscheidungskompetenz:</strong> Spezifische Werkzeuge trainierbar, aber Transfer porös</li><li><strong>Charakterbildung:</strong> Weniger Wissen, mehr Praxis und Beziehungen</li></ul><h3>Das Problem: Lehrpläne als Sedimentschichten</h3><p>Lehrpläne entstehen nicht durch systematische Analyse, sondern durch Kompromisse zwischen Fachverbänden, Wirtschaft und Tradition. Vieles steht darin, weil es dort immer schon stand.</p><h3>KI-analytische Ansätze</h3><ul><li><strong>Kohärenzanalyse:</strong> Welche Inhalte unterstützen welche Ziele?</li><li><strong>Wirkungsanalyse:</strong> Längsschnittdaten – welche Inhalte korrelieren mit Outcomes?</li><li><strong>Komparative Analyse:</strong> OECD-Länder vergleichen</li></ul><h3>Der blinde Fleck</h3><p>Diese Argumente operieren mit linearer Annahme. Wenn sich KI exponentiell entwickelt, verschieben sich die Fragen fundamental.</p>`
+            },
+            'swissfuture-2024': {
+                title: 'swissfuture Magazin 03–04/24: Positive Zukunftsbilder',
+                type: 'sources',
+                visibility: 'intern',
+                html: `<h3>Positive Zukunftsbilder</h3><p><strong>Quelle:</strong> swissfuture Magazin für Zukünfte, 51. Jahrgang, Ausgabe 03–04/2024</p><h3>Zentrale These</h3><p><strong>Positive Zukunftsbilder sind neurokognitive und soziale Infrastruktur für Verhaltenstransformation.</strong> Sie funktionieren durch drei Mechanismen: (1) Neurobiologische Aktivierung (präfrontaler Cortex, Dopamin), (2) emotionale Brücke über den Say-Do-Gap (78% kennen Probleme, aber keine Verhaltensänderung), (3) geteilte Bewegungsidentität.</p><h3>Sechs Hauptbeiträge</h3><ul><li><strong>Christoph Wey:</strong> Positive Narrative ohne Verzichts-Framing</li><li><strong>Bendig & Baumann:</strong> Warme Verhaltenstransformation durch 4 Narrative-Territorien</li><li><strong>Severin Marty:</strong> Lösungsorientierte Klimakommunikation</li><li><strong>Moritz Jäger:</strong> Stories for Future – 7 Akte der Narrativ-Entwicklung</li><li><strong>Stella Schaller:</strong> Realutopien als regenerative Visionen (fotorealistische Visualisierungen 2045)</li><li><strong>Ramona Sprenger:</strong> Digitale Zukünfte demokratisch gestalten</li></ul><h3>Kernerkenntnisse</h3><ul><li><strong>Say-Do-Gap:</strong> 78% sagen Nachhaltigkeit wichtig, aber Nachfrage schwach</li><li><strong>Regeneration statt Nachhaltigkeit:</strong> Heilung und Aufbau statt Erhalt und Verzicht</li><li><strong>4 Narrative-Territorien:</strong> Selbstwirksamkeit, Co-Evolution, Gesundheit, Zirkularität</li><li><strong>Lokalität:</strong> 10-km-Radius als Erfahrungsraum, nicht abstrakte Globalziele</li></ul>`
             },
             'predetermined-elements': {
                 title: 'Predetermined Elements',
@@ -263,6 +277,12 @@
                 type: 'concepts',
                 visibility: 'intern',
                 html: `<h3>KI in der Bildung</h3><h3>Aktuelle Diskurse</h3><ul><li><strong>KI-Literacy:</strong> KI als Unterrichtsgegenstand</li><li><strong>KI als Werkzeug:</strong> Adaptive Systeme, KI-Tutoren</li></ul><h3>Die kritische Lücke</h3><p>Niemand nutzt KI zur Analyse von Lehrplänen selbst. Die Diskussion <strong>setzt den Lehrplan als gegeben voraus</strong>.</p><h3>KI für Lehrplananalyse</h3><ul><li><strong>Kohärenzanalyse:</strong> Welche Inhalte unterstützen welche Ziele?</li><li><strong>Wirkungsanalyse:</strong> Längsschnittdaten – welche Inhalte korrelieren mit Outcomes?</li><li><strong>Komparative Analyse:</strong> Was funktioniert in anderen Ländern?</li></ul><h3>Goodhart's Dilemma</h3><p>KI kann nur optimieren, was sich messen lässt. Das Wesentliche an Bildung entzieht sich der Messung. Risiko: Wir schaffen das Unmessbare ab, das für Mündigkeit entscheidend ist.</p>`
+            },
+            'positive-zukunftsbilder': {
+                title: 'Positive Zukunftsbilder',
+                type: 'concepts',
+                visibility: 'intern',
+                html: `<h3>Positive Zukunftsbilder</h3><p><strong>Definition:</strong> Kohärente, plausible Darstellungen wünschenswerter zukünftiger Zustände, die als neurokognitive und soziale Infrastruktur für Verhaltensveränderung wirken.</p><h3>Zentrale These</h3><p><strong>Positive Zukunftsbilder sind nicht schmückendes Beiwerk, sondern die Voraussetzung für Verhaltenstransformation auf Bevölkerungsebene.</strong> Sie funktionieren durch drei Mechanismen:</p><ul><li><strong>Neurokognitive Aktivierung:</strong> Positive Ziele aktivieren präfrontalen Cortex, fördern Dopamin (vs. Angst-Framing, das Amygdala aktiviert)</li><li><strong>Emotionale Brücke über Say-Do-Gap:</strong> 78% kennen Probleme, aber keine Verhaltensänderung. Positive Narrative heilen diesen Gap durch emotionale Anziehung statt rationales Sollen</li><li><strong>Geteilte Bewegungsidentität:</strong> Fragmentierte Gruppen (Öko-Aktivisten, Tech-Optimisten) erkennen sich in gemeinsamen Gestaltungsprojekten</li></ul><h3>7 Elemente wirksamer Positive Zukunftsbilder</h3><ul><li><strong>Regeneration statt Nachhaltigkeit:</strong> Heilung, Aufbau, win-win statt Erhalt und Verzicht</li><li><strong>Lokalität:</strong> 10-km-Radius als Erfahrungsraum, nicht abstrakte Globalziele</li><li><strong>Gewinn statt Verzicht:</strong> Freiheit, Gesundheit, Gemeinschaft, Vielfalt</li><li><strong>Realutopien, nicht Romantik:</strong> Bereits funktionierende Modelle (Seestadt Wien, Dachfarmen Paris), nicht idyllische Hippie-Utopien</li><li><strong>4 Narrative-Territorien:</strong> Selbstwirksamkeit, Co-Evolution, Gesundheit, Zirkularität (nicht eine zentrale Story)</li><li><strong>Alltagsmenschen als Protagonist:innen:</strong> Nicht Held:innen oder Expert:innen</li><li><strong>Resiliente Hoffnung:</strong> Anerkennung von Krisen + Glaube, dass Zukunft gestaltbar ist</li></ul><h3>Zentrale Caveats</h3><ul><li><strong>Authentizität-Grenze:</strong> Risiko von Schönmalerei, die bei Kontakt mit Realität kollabiert</li><li><strong>Fragmentierungsproblem:</strong> Wie baut man Brücken zwischen verschiedenen gesellschaftlichen Bubbles?</li><li><strong>Skalierungsfrage:</strong> Sind lokale Realutopien auf nationale/globale Ebene übertragbar?</li><li><strong>Politische Blindheit:</strong> Narrative-Ebene reicht nicht für institutionelle/politische Transformationen</li></ul>`
             }
         };
 
