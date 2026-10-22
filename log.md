@@ -41,3 +41,8 @@ Chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge. Format: `[DA
 [2026-09-23] [UPDATE] wiki/concepts/swiss-foresight-method.md — Dimensionen mit konkreten Prüffragen erweitert (aus swissfuture-Wegweisung), neue Quellenreferenz auf swissfuture-wegweisung-2026
 
 [2026-09-23] [INDEX] index.md aktualisiert — 1 neue Source-Seite swissfuture-wegweisung-2026 an oberster Stelle eingefügt
+
+[2026-10-22] [INGEST] raw/gdi-major-shifts-2025.md — Rohquellen-Referenz zu PDF «GDI Major Shifts – Creating Futures» (GDI, Karin Frick, 2025); Volltext bewusst nicht im Repo (Urheberrecht GDI, Repo öffentlich)
+[2026-10-22] [INGEST] wiki/sources/gdi-major-shifts-2025.md — Zusammenfassung angelegt (Analyse/Interpretation-Modell, 20 Shifts, Beobachter-Rolle, Verifikationstabelle für unbelegte Zahlen, Bewertung nach 7 FoE-Dimensionen)
+[2026-10-22] [INGEST] wiki/concepts/major-shifts.md — Concept-Seite angelegt (Trend-Lebenszyklen, Muster möglicher Auswirkungen, Abgrenzung zu Predetermined Elements / Szenarioplanung / Wegweisung)
+[2026-10-22] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, 1 neue Source-Seite, Datum auf 2026-10-22 gesetzt
