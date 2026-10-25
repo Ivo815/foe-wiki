@@ -46,3 +46,5 @@ Chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge. Format: `[DA
 [2026-10-22] [INGEST] wiki/sources/gdi-major-shifts-2025.md — Zusammenfassung angelegt (Analyse/Interpretation-Modell, 20 Shifts, Beobachter-Rolle, Verifikationstabelle für unbelegte Zahlen, Bewertung nach 7 FoE-Dimensionen)
 [2026-10-22] [INGEST] wiki/concepts/major-shifts.md — Concept-Seite angelegt (Trend-Lebenszyklen, Muster möglicher Auswirkungen, Abgrenzung zu Predetermined Elements / Szenarioplanung / Wegweisung)
 [2026-10-22] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, 1 neue Source-Seite, Datum auf 2026-10-22 gesetzt
+[2026-10-25] [INGEST] Threema-Chat Schulprojekt Albinen, Praxisbasierter Lern- und Lehransatz (Grobkonzept), Flyer Bergdorfschule Albinen, Sitzungsprotokoll 19.10.2026 (Punkt 4 und 7) → wiki/concepts/bergdorfschule-albinen.md (neu angelegt; Quellen liegen nicht in raw/, daher noch keine wiki/sources-Seiten)
+[2026-10-25] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, Datum auf 2026-10-25 gesetzt
