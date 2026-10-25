@@ -24,6 +24,8 @@ Noch keine Thesen angelegt.
 
 - [Lehrplanentwicklung (Curriculum Design)](wiki/concepts/curriculum-design.md) — Systematische Planung von Inhalten und Fähigkeiten; die Frage "Was soll gelehrt werden?" | *intern*
 
+- [Bergdorfschule Albinen – praxisbasierter Lern- und Lehransatz](wiki/concepts/bergdorfschule-albinen.md) — Pilotprojekt von Hans-Peter Wyss: sechsstufiger Lernkreislauf, Dorf als Lernumgebung, Entlastung der Lehrpersonen; Angaben größtenteils ungeprüft | *intern*
+
 - [KI in der Bildung](wiki/concepts/ai-in-education.md) — KI als Unterrichtsgegenstand, Werkzeug und analytisches Instrument für Lehrplananalyse | *intern*
 
 - [Positive Zukunftsbilder](wiki/concepts/positive-zukunftsbilder.md) — Kohärente Darstellungen wünschenswerter Zukünfte als neurokognitive und soziale Infrastruktur für Verhaltensveränderung | *intern*
@@ -61,6 +63,6 @@ Noch keine Personenseiten angelegt.
 - **intern** – Seite ist noch nicht für Veröffentlichung freigegeben
 - **extern** – Seite ist für Veröffentlichung freigegeben (unterliegt Anonymitätsklausel, Visibility-Regel)
 
-**Datum des Katalogs:** 2026-10-22 (aktualisiert nach Ingest GDI Major Shifts)
+**Datum des Katalogs:** 2026-10-25 (aktualisiert nach Ergänzung Bergdorfschule Albinen)
 
 Siehe auch: [`log.md`](log.md) für chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge.
