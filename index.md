@@ -30,6 +30,8 @@ Noch keine Thesen angelegt.
 
 - [Positive Zukunftsbilder](wiki/concepts/positive-zukunftsbilder.md) — Kohärente Darstellungen wünschenswerter Zukünfte als neurokognitive und soziale Infrastruktur für Verhaltensveränderung | *intern*
 
+- [Wissenschaftsfreiheit (Academic Freedom)](wiki/concepts/wissenschaftsfreiheit.md) — Fünf Indikatoren des Academic Freedom Index, Messweise, Verlauf 2015–2025 weltweit und für die Schweiz | *intern*
+
 - [Major Shifts](wiki/concepts/major-shifts.md) — GDI-Rahmen: 20 Trend-Lebenszyklen in fünf Feldern, Trennung Analyse (Fakten) und Interpretation (Szenarien) | *intern*
 
 ---
@@ -37,6 +39,8 @@ Noch keine Thesen angelegt.
 ## Quellen (`wiki/sources/`)
 
 *(Zusammenfassungsseiten zu Rohquellen aus `raw/`)*
+
+- [Academic Freedom Index – Update 2026](wiki/sources/afi-update-2026.md) — FAU/V-Dem-Bericht: Wissenschaftsfreiheit 2015–2025 in 50 Ländern gesunken, in 9 gestiegen; Schwerpunkt institutionelle Autonomie; Zahlen mit V-Dem v16 abgeglichen | *intern*
 
 - [GDI Major Shifts – Creating Futures (2025)](wiki/sources/gdi-major-shifts-2025.md) — GDI-Broschüre (Karin Frick) mit 20 Major Shifts; Zahlen größtenteils ohne Quellenangabe, Prüfliste enthalten | *intern*
 
@@ -63,6 +67,6 @@ Noch keine Personenseiten angelegt.
 - **intern** – Seite ist noch nicht für Veröffentlichung freigegeben
 - **extern** – Seite ist für Veröffentlichung freigegeben (unterliegt Anonymitätsklausel, Visibility-Regel)
 
-**Datum des Katalogs:** 2026-10-25 (aktualisiert nach Ergänzung Bergdorfschule Albinen)
+**Datum des Katalogs:** 2026-11-13 (aktualisiert nach Ingest Academic Freedom Index Update 2026)
 
 Siehe auch: [`log.md`](log.md) für chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge.

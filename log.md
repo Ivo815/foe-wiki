@@ -48,3 +48,8 @@ Chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge. Format: `[DA
 [2026-10-22] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, 1 neue Source-Seite, Datum auf 2026-10-22 gesetzt
 [2026-10-25] [INGEST] Threema-Chat Schulprojekt Albinen, Praxisbasierter Lern- und Lehransatz (Grobkonzept), Flyer Bergdorfschule Albinen, Sitzungsprotokoll 19.10.2026 (Punkt 4 und 7) → wiki/concepts/bergdorfschule-albinen.md (neu angelegt; Quellen liegen nicht in raw/, daher noch keine wiki/sources-Seiten)
 [2026-10-25] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, Datum auf 2026-10-25 gesetzt
+
+[2026-11-13] [QUERY] "Animation zur Veränderung der globalen Wissenschaftsfreiheit in den letzten zehn Jahren" → animierte Weltkarte AFI 2015–2025 (interaktive Seite und MP4, nicht im Repo); Daten V-Dem v16 `v2xca_academ`; academic-freedom-index.net nicht erreichbar
+[2026-11-13] [INGEST] raw/afi-update-2026.md — Rohquellen-Referenz zu «Academic Freedom Index – Update 2026» (Kinzelbach, Lindberg, Lott, Panaro; FAU/V-Dem, doi:10.25593/open-fau-2865); PDF nicht im Repo
+[2026-11-13] [INGEST] raw/afi-update-2026.md → wiki/sources/afi-update-2026.md (neu), wiki/concepts/wissenschaftsfreiheit.md (neu); Kennzahlen des Berichts mit V-Dem v16 abgeglichen (50 Rückgänge / 9 Anstiege reproduziert)
+[2026-11-13] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, 1 neue Source-Seite, Datum auf 2026-11-13 gesetzt; dashboard.html liest index.md dynamisch, keine Änderung nötig
