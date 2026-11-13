@@ -53,3 +53,4 @@ Chronologisches Protokoll aller Ingest-, Query- und Lint-Vorgänge. Format: `[DA
 [2026-11-13] [INGEST] raw/afi-update-2026.md — Rohquellen-Referenz zu «Academic Freedom Index – Update 2026» (Kinzelbach, Lindberg, Lott, Panaro; FAU/V-Dem, doi:10.25593/open-fau-2865); PDF nicht im Repo
 [2026-11-13] [INGEST] raw/afi-update-2026.md → wiki/sources/afi-update-2026.md (neu), wiki/concepts/wissenschaftsfreiheit.md (neu); Kennzahlen des Berichts mit V-Dem v16 abgeglichen (50 Rückgänge / 9 Anstiege reproduziert)
 [2026-11-13] [INDEX] index.md aktualisiert — 1 neue Concept-Seite, 1 neue Source-Seite, Datum auf 2026-11-13 gesetzt; dashboard.html liest index.md dynamisch, keine Änderung nötig
+[2026-11-13] [QUERY] Animation ins Wiki eingebaut → assets/afi/wissenschaftsfreiheit.html und assets/afi/wissenschaftsfreiheit-2015-2025.mp4 (neu), eingebettet in wiki/concepts/wissenschaftsfreiheit.md; Verweis in wiki/sources/afi-update-2026.md ergänzt

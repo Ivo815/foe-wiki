@@ -48,7 +48,16 @@ Alle Werte stammen aus dem V-Dem-Datensatz v16 und sind in [[afi-update-2026]] m
 
 ## Visualisierung
 
-Eine animierte Weltkarte 2015–2025 wurde am 2026-11-13 aus denselben Daten erstellt (interaktive Seite und MP4). Sie liegt nicht im Repo.
+Animierte Weltkarte des AFI 2015–2025, erstellt am 2026-11-13 aus den oben genannten Daten. Im Dashboard läuft sie direkt hier; mit dem Schieberegler lässt sich jedes Jahr einzeln ansteuern.
+
+<iframe src="assets/afi/wissenschaftsfreiheit.html" title="Animierte Weltkarte des Academic Freedom Index 2015–2025" loading="lazy" style="width:100%;height:760px;border:1px solid #ccc;border-radius:8px"></iframe>
+
+Dateien im Repo:
+
+- `assets/afi/wissenschaftsfreiheit.html` (interaktive Seite)
+- `assets/afi/wissenschaftsfreiheit-2015-2025.mp4` (Video, 1920x1080, 17 Sekunden, ohne Ton)
+
+Die Karte zeigt Punktschätzungen ohne Unsicherheitsintervalle und interpoliert linear zwischen den Jahreswerten. 13 kleine Staaten und Territorien fehlen in der Kartengeometrie, sind aber in den Zahlen enthalten.
 
 ## Offene Fragen
 

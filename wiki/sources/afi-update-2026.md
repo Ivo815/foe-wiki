@@ -86,4 +86,4 @@ Die Länderwerte 2015–2025 wurden aus dem V-Dem-Datensatz v16 gelesen (Variabl
 
 ## Verweise
 
-- Konzept: [[wissenschaftsfreiheit]]
+- Konzept: [[wissenschaftsfreiheit]] (mit animierter Weltkarte 2015–2025)
